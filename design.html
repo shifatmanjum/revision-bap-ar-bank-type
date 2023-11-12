@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bap ar bank ar revision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- This is the introduction div -->
+
+
+
+    <div>
+        <h1 class="text-3xl text-center mb-12 w-3/4 mx-auto rounded-md bg-zinc-200 mt-12"> Revision day of bank
+            acoount
+            creation by <span class="text-red-600">Shifat
+                Manjum<span>
+        </h1>
+    </div>
+
+    <!-- here start second div with 3 cols -->
+
+
+    <section>
+        <div class="grid grid-cols-3 gap-6 text-center w-3/4 mx-auto">
+
+
+            <div id="display-deposit" class="rounded-md bg-red-500">
+                <h4 class="text-2xl">Deposit</h4>
+                <h4>$ <span id="current-deposit">0.00</span> </h4>
+            </div>
+
+
+
+            <div id="display-withdrow" class=" rounded-md bg-blue-500">
+                <h4 class="text-2xl">Withdrow</h4>
+                <h4>$ <span>0.00</span></h4>
+            </div>
+
+
+
+            <div id="display-balance" class="rounded-md bg-green-500">
+                <h4 class="text-2xl">Balance</h4>
+                <h4>$ <span>0.00</span></h4>
+            </div>
+        </div>
+    </section>
+    <!-- here finis second div with 3 cols -->
+
+
+    <!-- section start for grid cols 2 -->
+
+
+
+
+    <section>
+        <div class="grid grid-cols-2 w-3/4 gap-6 mx-auto mt-12">
+
+            <!-- inside the parrent div of 2 cols-->
+
+            <div class="bg-blue-500 px-2 rounded text-center h-40 ">
+                <h3 class="mt-4 font-bold">Deposit Amount</h3>
+
+
+                <input id="amount-to-be-deposit" type="text" placeholder="$ put your amount" name=""
+                    class="text-center rounded mt-2 h-10 ">
+                <br>
+
+
+                <button id="btn-deposit" class="bg-yellow-500 hover:bg-blue-700 text-white py-2 px-4 rounded mt-3">
+                    Deposit
+                </button>
+            </div>
+            <!-- here is the second cols of 2 cols-->
+            <div class="bg-blue-500 px-2 rounded text-center">
+                <h3 class="mt-4 font-bold">Withdrow Amount</h3>
+
+
+                <input id="amount-to-be-withdrow" type="text" placeholder="$ put your amount" name=""
+                    class="text-center rounded mt-2 h-10 ">
+                <br>
+
+
+                <button id="btn-withdrow" class="bg-yellow-500 hover:bg-blue-700 text-white  py-2 px-4 rounded mt-3">
+                    Withdrow
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- <script src="design.js"></script> -->
+    <script>
+
+        //step-1 we get the button by addeventlistener
+        document.getElementById('btn-deposit').addEventListener('click', function () {
+
+            //step-2   now we get the $ put your amount pachholder and get the value
+            const futureDeposit = document.getElementById('amount-to-be-deposit');
+            const futureDepositValue = futureDeposit.value;
+
+            //step-3  now we get the value and this value has to be number not string thats why now we convert it with partsflot 
+
+            const futureDepositValueString = parseFloat(futureDepositValue);
+
+
+            //step-4   now we clear the previous text
+            futureDeposit.value = '';
+
+            const getCurrentBalance = document.getElementById('current-deposit');
+            const currentBalanceInside = getCurrentBalance.innerText;
+            const currentBalanceInsideString = parseFloat(currentBalanceInside);
+            const calculatedDepositAmount = currentBalanceInsideString + futureDepositValueString;
+            getCurrentBalance.innerText = calculatedDepositAmount;
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>
